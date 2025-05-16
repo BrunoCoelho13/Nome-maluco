@@ -1,0 +1,213 @@
+/* Estilos Gerais */
+body {
+    font-family: 'Minecraft', 'Comic Sans MS', cursive, sans-serif;
+    background-color: #8ab4f8; /* Céu do Minecraft */
+    background-image: 
+        url('https://www.minecraft.net/content/dam/minecraft/touchup-2020/minecraft-background-behavior-2.jpg'),
+        linear-gradient(to bottom, #8ab4f8, #3b8526 80%);
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    animation: skyAnimation 20s infinite alternate;
+}
+
+@keyframes skyAnimation {
+    0% { background-color: #8ab4f8; }
+    50% { background-color: #7da3e6; }
+    100% { background-color: #6b91d1; }
+}
+
+section {
+    background-color: rgba(59, 133, 38, 0.85); /* Verde Minecraft semi-transparente */
+    border: 6px solid #ffd83d; /* Borda amarela */
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 
+        0 0 20px rgba(255, 216, 61, 0.6),
+        0 0 40px rgba(255, 216, 61, 0.3);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px dashed #ffd83d;
+    border-radius: 15px;
+    animation: borderPulse 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes borderPulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { opacity: 0.3; }
+}
+
+.title h2 {
+    color: #ffd83d;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-shadow: 
+        3px 3px 0 #3b8526,
+        5px 5px 0 rgba(0, 0, 0, 0.2);
+    letter-spacing: 2px;
+    animation: titleBounce 0.5s ease infinite alternate;
+}
+
+@keyframes titleBounce {
+    to { transform: translateY(-5px); }
+}
+
+div {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+p {
+    color: #ffd83d;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 18px;
+    text-shadow: 1px 1px 0 #3b8526;
+}
+
+input {
+    width: 100%; /* Agora pode ser 100% porque o box-sizing resolve */
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border: 3px solid #3b8526;
+    border-radius: 8px;
+    color: #333;
+    font-size: 16px;
+    transition: all 0.3s;
+    font-family: 'Minecraft', 'Comic Sans MS', cursive;
+    box-shadow: inset 0 0 8px rgba(0,0,0,0.2);
+    box-sizing: border-box; /* Solução definitiva */
+}
+
+input:focus {
+    outline: none;
+    border-color: #ffd83d;
+    box-shadow: 
+        0 0 15px #ffd83d,
+        inset 0 0 8px rgba(0,0,0,0.2);
+    transform: scale(1.02);
+}
+
+input::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* Botão Mega Divertido */
+#doido {
+    background-color: #ffd83d;
+    color: #3b8526;
+    border: none;
+    padding: 18px 35px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    border-bottom: 6px solid #d4b22d;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    width: 100%;
+    font-family: 'Minecraft', 'Comic Sans MS', cursive;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#doido:hover {
+    background-color: #ffe766;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(255, 216, 61, 0.5);
+}
+
+#doido:active {
+    transform: translateY(3px);
+    border-bottom-width: 3px;
+}
+
+#doido::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+#doido:hover::before {
+    left: 100%;
+}
+
+/* Efeitos Especiais */
+@font-face {
+    font-family: 'Minecraft';
+    src: url('https://fonts.cdnfonts.com/css/minecraft-4') format('woff2');
+}
+
+/* Adicionando elementos de Minecraft */
+.creeper-face {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" fill="%233b8526"/><rect x="8" y="8" width="2" height="2" fill="%23000"/><rect x="14" y="8" width="2" height="2" fill="%23000"/><rect x="8" y="12" width="8" height="2" fill="%23000"/></svg>');
+    opacity: 0.3;
+    animation: float 15s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.3; }
+    90% { opacity: 0.3; }
+    100% { transform: translate(100vw, -100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    section {
+        padding: 25px;
+    }
+    
+    .title h2 {
+        font-size: 24px;
+        animation: none;
+        transform: none;
+    }
+    
+    p {
+        font-size: 16px;
+    }
+    
+    input {
+        padding: 12px;
+    }
+    
+    #doido {
+        padding: 15px 25px;
+        font-size: 20px;
+    }
+}
